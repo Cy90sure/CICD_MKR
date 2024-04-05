@@ -30,6 +30,23 @@ def filter_lines(lines: list, keyword: str) -> list:
     """
     return [line.strip() for line in lines if keyword in line]
 
+def write_filtered_lines(filtered_lines: list):
+    """
+    Записує відфільтровані рядки у файл "filtered.txt" на робочому столі.
+    :param filtered_lines: Список відфільтрованих рядків.
+    """
+    try:
+        if filtered_lines:
+            desktop_path = get_desktop_path()
+            filtered_file_path = os.path.join(desktop_path, "filtered.txt")
+            with open(filtered_file_path, 'w') as filtered_file:
+                filtered_file.write('\n'.join(filtered_lines))
+            print("Файл успішно створено з відфільтрованими рядками.")
+        else:
+            print("Не знайдено жодного рядка, що містить ключове слово.")
+    except Exception as e:
+        print("Сталася помилка під час запису у файл:", str(e))
+
 if __name__ == "__main__":
     keyword = input("Введіть ключове слово: ")
     filepath = input("Введіть шлях до файлу: ")
