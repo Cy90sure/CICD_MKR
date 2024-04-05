@@ -18,3 +18,12 @@ def sample_file(tmpdir):
 def test_read_file(sample_file):
     lines = read_file(sample_file)
     assert len(lines) == 7
+
+def test_filter_lines():
+    lines = [
+        "Lorem Ipsum is simply dummy text",
+        "It was popularised in the 1960s",
+        "This line does not contain the keyword"
+    ]
+    filtered_lines = filter_lines(lines, "Lorem")
+    assert len(filtered_lines) == 1
