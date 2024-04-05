@@ -64,4 +64,4 @@ if __name__ == "__main__":
     keyword = input("Введіть ключове слово: ")
     filepath = input("Введіть шлях до файлу: ")
 
-    #filter_file(keyword, filepath)
+    filter_file(keyword, filepath)
