@@ -14,3 +14,7 @@ def sample_file(tmpdir):
         It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
         and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.""")
     return filepath
+
+def test_read_file(sample_file):
+    lines = read_file(sample_file)
+    assert len(lines) == 7
