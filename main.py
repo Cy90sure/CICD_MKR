@@ -47,6 +47,19 @@ def write_filtered_lines(filtered_lines: list):
     except Exception as e:
         print("Сталася помилка під час запису у файл:", str(e))
 
+def filter_file(keyword: str, filepath: str):
+    """
+    Фільтрує вміст файлу за ключовим словом та записує результат у файл "filtered.txt" на робочому столі.
+    :param keyword: Ключове слово для фільтрації рядків.
+    :param filepath: Шлях до файлу, що підлягає фільтрації.
+    """
+    lines = read_file(filepath)
+    if lines:
+        filtered_lines = filter_lines(lines, keyword)
+        write_filtered_lines(filtered_lines)
+
+
+
 if __name__ == "__main__":
     keyword = input("Введіть ключове слово: ")
     filepath = input("Введіть шлях до файлу: ")
