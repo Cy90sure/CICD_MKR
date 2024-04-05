@@ -21,6 +21,15 @@ def read_file(filepath: str) -> list:
         print("Сталася помилка під час читання файлу:", str(e))
         return []
 
+def filter_lines(lines: list, keyword: str) -> list:
+    """
+    Фільтрує список рядків за ключовим словом та повертає відфільтровані рядки.
+    :param lines: Список рядків для фільтрації.
+    :param keyword: Ключове слово, за яким фільтруються рядки.
+    :return: Список відфільтрованих рядків.
+    """
+    return [line.strip() for line in lines if keyword in line]
+
 if __name__ == "__main__":
     keyword = input("Введіть ключове слово: ")
     filepath = input("Введіть шлях до файлу: ")
